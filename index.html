@@ -1,139 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zach Landis | Resume</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zach Landis — Resume</title>
+  <meta name="description" content="Resume website for Zach Landis." />
+  <meta name="theme-color" content="#0a2540" />
+  <meta property="og:title" content="Zach Landis — Resume" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A clean, professional resume website." />
   <style>
-    /* --- GLOBAL STYLES --- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ===== CSS RESET (modern, minimal) ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    body{margin:0;font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;line-height:1.6;background:#f6f7fb;color:#172026}
+    img,svg{display:block;max-width:100%;height:auto}
+    a{color:inherit;text-decoration:none}
+    :root{
+      --bg:#f6f7fb;
+      --surface:#ffffff;
+      --ink:#172026;
+      --muted:#6b7785;
+      --brand:#0a2540; /* deep blue */
+      --brand-2:#1d5fa7; /* accent */
+      --ring: 0 0 0 .2rem rgba(29,95,167,.25);
+      --radius:16px;
+      --shadow: 0 10px 30px rgba(10,37,64,.08), 0 2px 8px rgba(10,37,64,.06);
+      --max: 1024px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b1220;--surface:#0f172a;--ink:#e6ebf2;--muted:#9aa4b2;--brand:#5ea1ff;--brand-2:#a4c8ff;--shadow:none}
+      body{background:#0b1220;color:#e6ebf2}
     }
 
-    body {
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background-color: #f4f5f7;
-      color: #333;
-      line-height: 1.6;
+    /* ===== Layout ===== */
+    header.site-header{
+      position: sticky; top:0; z-index:100; backdrop-filter:saturate(180%) blur(8px);
+      background: linear-gradient( to right, rgba(255,255,255,.85), rgba(255,255,255,.7) );
+      border-bottom: 1px solid rgba(10,37,64,.06);
     }
-
-    a {
-      color: #0077b6;
-      text-decoration: none;
+    @media (prefers-color-scheme: dark){
+      header.site-header{background: linear-gradient( to right, rgba(15,23,42,.75), rgba(15,23,42,.6) ); border-bottom-color: rgba(255,255,255,.06)}
     }
-
-    a:hover {
-      text-decoration: underline;
+    .nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: .75rem 1rem;
+      display: grid; grid-template-columns: 1fr auto; align-items:center; gap:1rem;
     }
-
-    /* --- HEADER --- */
-    header {
-      background: linear-gradient(135deg, #003049, #0077b6);
-      color: white;
-      padding: 3rem 1rem;
-      text-align: center;
+    .brand{
+      font-weight: 700; letter-spacing:.3px; color: var(--brand);
     }
+    .brand small{display:block; color:var(--muted); font-weight:500; letter-spacing:.2px}
+    nav ul{display:flex; gap:.75rem; list-style:none; padding:0; margin:0; flex-wrap:wrap}
+    nav a{display:inline-block; padding:.5rem .75rem; border-radius:10px; color:var(--muted)}
+    nav a:hover, nav a:focus{outline:none; color:var(--brand); background: rgba(29,95,167,.08)}
 
-    header h1 {
-      font-size: 2.5rem;
-      letter-spacing: 1px;
-    }
+    .hero{background: radial-gradient(1200px 400px at 10% -10%, rgba(29,95,167,.08), transparent),
+                        radial-gradient(1200px 400px at 90% -10%, rgba(10,37,64,.06), transparent);
+          border-bottom: 1px solid rgba(10,37,64,.06)}
+    .hero-inner{max-width: var(--max); margin: 0 auto; padding: 3.5rem 1rem 2.5rem;}
+    .hero h1{font-size: clamp(1.8rem, 2vw + 1.2rem, 2.4rem); color: var(--brand); margin:0}
+    .hero h2{font-size: 1.05rem; font-weight:600; color:var(--muted); margin:.5rem 0 0}
 
-    header h3 {
-      font-weight: 400;
-      margin-top: 0.5rem;
-      opacity: 0.9;
-    }
+    main{max-width: var(--max); margin: 2rem auto; padding: 0 1rem 4rem}
 
-    /* --- MAIN CONTENT --- */
-    main {
-      max-width: 900px;
-      background: white;
-      margin: 2rem auto;
-      padding: 2rem 3rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    }
+    .section{background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
+             padding: 1.25rem 1.25rem 1.5rem; margin-bottom: 1.25rem;}
+    .section h2{font-size: 1.15rem; letter-spacing:.3px; color: var(--brand); display:flex; align-items:center; gap:.6rem; margin:.25rem 0 0}
+    .section h2 .dot{width:.55rem; height:.55rem; border-radius:999px; background: var(--brand-2); box-shadow: 0 0 0 6px rgba(29,95,167,.10)}
 
-    section {
-      margin-bottom: 2rem;
-    }
+    /* Two-column grid that gracefully collapses */
+    .grid{display:grid; grid-template-columns: 1fr 1fr; gap: 1rem}
+    @media (max-width: 880px){ .grid{grid-template-columns: 1fr} }
 
-    h2 {
-      color: #003049;
-      border-bottom: 2px solid #0077b6;
-      padding-bottom: 0.4rem;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
+    /* Footer */
+    footer{max-width: var(--max); margin: 2rem auto 3rem; padding: 0 1rem; color: var(--muted); text-align:center}
+    .credit{font-size:.9rem}
 
-    /* --- FOOTER --- */
-    footer {
-      background-color: #003049;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 0;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-    }
+    /* Focus styles for accessibility */
+    :where(a, button, summary, [tabindex="0"]):focus-visible{box-shadow: var(--ring); border-radius:10px}
 
-    /* --- RESPONSIVE DESIGN --- */
-    @media (max-width: 768px) {
-      main {
-        padding: 1.5rem;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-
-      header h3 {
-        font-size: 1rem;
-      }
+    /* Print styling for PDF export */
+    @media print{
+      header.site-header, .hero{display:none}
+      body{background:white}
+      main{margin:0; padding:0}
+      .section{box-shadow:none; border:1px solid #ddd; page-break-inside: avoid}
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Your Name</h1>
-    <h3>Your Professional Title</h3>
+  <!-- ===== Sticky Navigation ===== -->
+  <header class="site-header" role="banner" aria-label="Primary">
+    <div class="nav">
+      <div class="brand" aria-label="Site identity">
+        Zach Landis
+        <small>Resume</small>
+      </div>
+      <nav aria-label="Section navigation">
+        <ul>
+          <li><a href="#summary">Summary</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#volunteering">Volunteering</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="summary">
-      <h2>Professional Summary</h2>
+  <!-- ===== Hero ===== -->
+  <section class="hero" role="region" aria-label="Intro">
+    <div class="hero-inner">
+      <h1>Zach Landis</h1>
+      <h2>Professional Resume</h2>
+    </div>
+  </section>
+
+  <!-- ===== Main Content ===== -->
+  <main id="content" role="main">
+    <!-- Keep sections empty (headers-only) for now as requested -->
+
+    <section id="summary" class="section" aria-labelledby="summary-title">
+      <h2 id="summary-title"><span class="dot" aria-hidden="true"></span>Professional Summary</h2>
     </section>
 
-    <section id="education">
-      <h2>Education</h2>
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <h2 id="experience-title"><span class="dot" aria-hidden="true"></span>Experience</h2>
+      <div class="grid"></div>
     </section>
 
-    <section id="experience">
-      <h2>Work Experience</h2>
+    <section id="education" class="section" aria-labelledby="education-title">
+      <h2 id="education-title"><span class="dot" aria-hidden="true"></span>Education</h2>
+      <div class="grid"></div>
     </section>
 
-    <section id="skills">
-      <h2>Technical & Professional Skills</h2>
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <h2 id="skills-title"><span class="dot" aria-hidden="true"></span>Skills</h2>
+      <div class="grid"></div>
     </section>
 
-    <section id="projects">
-      <h2>Projects & Achievements</h2>
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title"><span class="dot" aria-hidden="true"></span>Projects</h2>
+      <div class="grid"></div>
     </section>
 
-    <section id="certifications">
-      <h2>Certifications</h2>
+    <section id="certs" class="section" aria-labelledby="certs-title">
+      <h2 id="certs-title"><span class="dot" aria-hidden="true"></span>Certifications</h2>
+      <div class="grid"></div>
     </section>
 
-    <section id="contact">
-      <h2>Contact Information</h2>
+    <section id="awards" class="section" aria-labelledby="awards-title">
+      <h2 id="awards-title"><span class="dot" aria-hidden="true"></span>Awards</h2>
+    </section>
+
+    <section id="leadership" class="section" aria-labelledby="leadership-title">
+      <h2 id="leadership-title"><span class="dot" aria-hidden="true"></span>Leadership</h2>
+    </section>
+
+    <section id="volunteering" class="section" aria-labelledby="volunteering-title">
+      <h2 id="volunteering-title"><span class="dot" aria-hidden="true"></span>Volunteering</h2>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title"><span class="dot" aria-hidden="true"></span>Contact</h2>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Your Name — All Rights Reserved</p>
+    <p class="credit">© <span id="year"></span> Zach Landis • All rights reserved</p>
   </footer>
+
+  <script>
+    // Update year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reduce motion for users who prefer it
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){ document.documentElement.style.scrollBehavior = 'auto'; }
+  </script>
 </body>
 </html>
