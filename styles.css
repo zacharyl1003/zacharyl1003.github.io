@@ -1,134 +1,134 @@
-/* =========================================
-   Zach Landis — Resume Site Styles (Redo)
-   Beginner-friendly CSS, clean and strong look
-   ========================================= */
 
-/* -------- Theme -------- */
-:root {
-  --bg: #f4f6fa;
-  --text: #0b1220;
-  --muted: #5b6472;
-  --card: #ffffff;
-  --accent: #2563eb; /* blue */
-  --border: #e5e8ee;
-  --radius: 14px;
-  --shadow: 0 10px 20px rgba(15, 23, 42, 0.10);
-  --maxw: 1000px;
+
+/* Theme */
+:root{
+  --blue:#2563eb;     /* primary blue */
+  --bg:#f5f7fb;       /* page background */
+  --card:#ffffff;     /* cards */
+  --text:#0b1220;     /* dark gray text */
+  --muted:#5b6472;    /* secondary text */
+  --line:#e5e8ee;     /* borders */
+  --radius:16px;
+  --shadow:0 12px 24px rgba(2,6,23,.10);
+  --maxw:1100px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b1120;
-    --text: #e8eef6;
-    --muted: #a7b0bd;
-    --card: #111827;
-    --accent: #3b82f6;
-    --border: #1f2937;
-    --shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
-  }
+/* Base */
+*{box-sizing:border-box}
+html,body{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
 }
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:var(--maxw);margin:0 auto;padding:24px}
 
-/* -------- Base -------- */
-* { box-sizing: border-box; }
-html, body { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.6;
+/* HERO */
+.hero{padding:36px 0 12px}
+.hero__wrap{
+  display:grid;gap:24px;
+  align-items:center;
 }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-.container { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
-
-/* -------- Header / Nav -------- */
-.site-header {
-  position: sticky; top: 0; z-index: 20;
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(6px);
+@media (min-width: 980px){
+  .hero__wrap{grid-template-columns: 0.9fr 1.1fr}
 }
-@media (prefers-color-scheme: dark) {
-  .site-header { background: rgba(17, 24, 39, 0.9); }
-}
-.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.brand { font-size: 18px; font-weight: 800; letter-spacing: .3px; }
-.brand span { color: var(--accent); }
-.nav { display: flex; gap: 10px; flex-wrap: wrap; }
-.nav a { color: var(--muted); padding: 10px 12px; border-radius: 8px; }
-.nav a:hover { background: #eef2ff; color: var(--text); text-decoration: none; }
-
-/* -------- Hero -------- */
-.hero { padding: 28px 0; }
-.hero-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 24px;
+.hero__media{text-align:center}
+.hero__img{
+  width: 280px; max-width:100%;
+  aspect-ratio: 1/1; object-fit: cover;
+  border-radius: 18px;
+  border: 4px solid #eef2ff;
   box-shadow: var(--shadow);
 }
-.hero-title { margin: 0 0 6px; font-size: 34px; line-height: 1.15; }
-.hero-sub { margin: 0 0 10px; color: var(--muted); }
-.hero-badges { list-style: none; padding: 0; margin: 10px 0 0; display: flex; gap: 8px; flex-wrap: wrap; }
-.hero-badges li {
-  font-size: 13px; padding: 6px 10px; border-radius: 999px;
-  background: #eff6ff; border: 1px solid #dbeafe;
+.hero__title{margin:0 0 6px;font-size:38px;line-height:1.12}
+.hero__tag{margin:0;color:var(--muted)}
+.badges{
+  list-style:none;padding:0;margin:14px 0 0;
+  display:flex;flex-wrap:wrap;gap:8px;
 }
-@media (prefers-color-scheme: dark) {
-  .hero-badges li { background: #0f172a; border-color: #1f2a44; }
+.badges li{
+  font-size:13px;padding:6px 10px;border-radius:999px;
+  background:#eef2ff;border:1px solid #dbeafe;color:#1f2a44;
 }
-.hero-actions { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
-.btn { border: 0; border-radius: 10px; padding: 10px 14px; cursor: pointer; }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-ghost { background: #f3f5f8; color: var(--text); border: 1px solid var(--border); }
-@media (prefers-color-scheme: dark) {
-  .btn-ghost { background: #0f172a; }
+.cta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  border:1px solid var(--line);
+  background:#f3f5f8;
+  color:var(--text);
+  border-radius:10px;
+  padding:10px 14px;
+  cursor:pointer;
+}
+.btn--primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn--outline{background:#fff;border-color:var(--line)}
+.btn--ghost{background:#f3f5f8}
+
+/* LAYOUT */
+.layout{display:grid;gap:20px}
+@media (min-width: 980px){
+  .layout{grid-template-columns:1.15fr .85fr;align-items:start}
+}
+.stack{display:grid;gap:20px}
+
+/* CARDS */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+}
+h2{margin:0 0 10px;font-size:22px}
+.meta{color:var(--muted);font-size:14px}
+.spacer{height:8px}
+
+/* SKILL CHIPS */
+.chips{
+  list-style:none;padding:0;margin:0;
+  display:flex;flex-wrap:wrap;gap:8px
+}
+.chips li{
+  background:#f1f5f9;border:1px solid var(--line);
+  color:#1f2937;border-radius:999px;
+  padding:8px 12px;font-size:13px
 }
 
-/* -------- Sections / Cards -------- */
-.section { margin-top: 28px; }
-.section h2 { margin: 0 0 12px; font-size: 22px; }
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: var(--shadow);
+/* LIST BLOCKS */
+.list{display:grid;gap:12px}
+.list__item{
+  padding:14px;border:1px solid #edf0f5;border-radius:10px;background:#fff
 }
-.muted { color: var(--muted); }
-.grid { display: grid; gap: 16px; }
-@media (min-width: 900px) { .two { grid-template-columns: 1fr 1fr; } }
+.list__item h3{margin:0 0 4px;font-size:16px}
 
-/* -------- Timeline -------- */
-.timeline { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--border); }
-.timeline-item { position: relative; padding: 0 0 14px 16px; }
-.timeline-item::before {
-  content: ""; position: absolute; left: -7px; top: 3px;
-  width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+/* TIMELINE */
+.timeline{
+  list-style:none;padding:0;margin:0;
+  border-left:3px solid var(--line)
 }
-.t-head { display: flex; flex-direction: column; gap: 4px; }
-.t-head h3 { margin: 0; font-size: 18px; }
-.t-meta { color: var(--muted); font-size: 14px; }
-.t-body { margin: 6px 0 0; }
-
-/* -------- Chips -------- */
-.chips { list-style: none; padding: 0; margin: 0; display: flex; gap: 8px; flex-wrap: wrap; }
-.chips li {
-  padding: 8px 12px; border-radius: 999px; background: #f1f5f9; border: 1px solid var(--border); font-size: 13px;
+.timeline__item{position:relative;padding:0 0 14px 16px}
+.timeline__item::before{
+  content:"";position:absolute;left:-7px;top:3px;
+  width:10px;height:10px;border-radius:50%;background:var(--blue)
 }
-@media (prefers-color-scheme: dark) { .chips li { background: #0f172a; } }
+.timeline__head{display:flex;flex-direction:column;gap:4px}
+.timeline__head h3{margin:0;font-size:18px}
 
-/* -------- Footer -------- */
-.site-footer { margin-top: 44px; padding: 24px 0; color: var(--muted); text-align: center; border-top: 1px solid var(--border); }
-.site-footer small { display: block; }
+/* FOOTER */
+.footer{
+  margin:28px 0 40px;color:var(--muted);
+  text-align:center;border-top:1px solid var(--line);padding-top:18px
+}
 
-/* -------- Print -------- */
-@media print {
-  .site-header, .btn, .nav { display: none !important; }
-  body { background: #fff; color: #000; }
-  .hero-card, .card { box-shadow: none; border-color: #bbb; }
-  .container { padding: 0; }
-  a { color: #000; text-decoration: none; }
+/* PRINT */
+@media print{
+  .cta .btn{display:none!important}
+  body{background:#fff;color:#000}
+  .card{box-shadow:none;border-color:#bbb}
+  .container{padding:0}
+  a{color:#000;text-decoration:none}
 }
