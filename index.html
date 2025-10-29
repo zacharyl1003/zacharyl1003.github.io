@@ -1,155 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Zach Landis | Resume</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #2c3e50;
-      color: black;
-      text-align: center;
-      padding: 2em 0;
-    }
-    main {
-      max-width: 800px;
-      margin: 2em auto;
-      background: white;
-      padding: 2em;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
-    }
-    section {
-      margin-bottom: 2em;
-    }
-    h2 {
-      border-bottom: 2px solid #2c3e50;
-      padding-bottom: 0.3em;
-    }
-    footer {
-      text-align: center;
-      padding: 1em 0;
-      background-color: #2c3e50;
-      color: white;
-      margin-top: 2em;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Zachary D. Landis</h1>
-    <h3>Cybersecurity/ Computer Science Dual Major</h3>
-    <h3>Interning at Indiana Cyber Network</h3>
+  <!-- ====== Navigation Bar ====== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand"><b>Zach</b> Landis</div>
+      <nav class="nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ====== Hero Section ====== -->
+  <header class="container hero">
+    <div class="hero-card">
+      <h1>Zachary D. Landis</h1>
+      <p class="subtitle">
+        Cybersecurity & Computer Science (B.S.) · Senior @ Anderson University · Cybersecurity Analyst Intern
+      </p>
+      <div class="badges">
+        <span class="badge">Anderson, Indiana</span>
+        <span class="badge">Threat Analysis · IR · SysAdmin</span>
+        <span class="badge">Open to Opportunities</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="btn ghost" type="button" onclick="window.print()">Print / Save PDF</button>
+        <a class="btn download" href="#" onclick="window.print()">Download PDF</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Hello, I am Zachary Landis. I am currently a senior at Anderson University pursuing a bachelor’s degree in Cybersecurity 
-        with a complementary major focusing on Computer Science. As a freshman, I built a foundation in programming with Python,
-         C++, and C. In my sophomore and junior years, I learned to take the knowledge I gained from my initial Computer Science
-          classes and apply it in cybersecurity, focusing on threat analysis, penetration testing, ethical hacking, and cryptographic 
-          security. My main skills include risk assessment, vulnerability exploitation, and system administration. I excel in problem
-          solving and continuously work to improve my technical abilities. Passionate about cybersecurity, I stay committed to learning 
-          and enhancing my skills every day. </p>
+  <!-- ====== Main Content ====== -->
+  <main class="container grid">
+
+    <!-- About Section -->
+    <section id="about" class="grid two">
+      <article class="card">
+        <h2>About Me</h2>
+        <p>Hello! I’m Zachary Landis, a senior at Anderson University pursuing a B.S. in Cybersecurity with a complementary focus in Computer Science. I built a foundation in Python, C++, and C, then applied those skills to cybersecurity: threat analysis, penetration testing, ethical hacking, and cryptographic security. I’m strong in risk assessment, vulnerability analysis, and system administration. I love solving problems and learning every day.</p>
+      </article>
+
+      <aside class="card" aria-label="Quick facts">
+        <h2>Quick Facts</h2>
+        <div class="list">
+          <div class="item">
+            <h3>Current Role</h3>
+            <div class="meta">Cybersecurity Analyst Intern · Indiana Cyber Network</div>
+          </div>
+          <div class="item">
+            <h3>Graduation</h3>
+            <div class="meta">Expected 2026</div>
+          </div>
+          <div class="item">
+            <h3>Location</h3>
+            <div class="meta">Anderson, IN</div>
+          </div>
+        </div>
+      </aside>
     </section>
 
-  <section id="education">
-  <h2>Education</h2>
-  
-  <ul>
-    <li>
-      <h3>Anderson University</h3>
-      <p>Bachelor of Science in Cybersecurity and Computer Science — Expected Graduation: 2026</p>
-      <p> August 2022 - Present</p>
-    </li>
-    <li>
-      <h3>Liberty Christian School</h3>
-      <p>High School Diploma — Graduated: 2022</p>
-    </li>
-    <li>
-      <h3>Anderson Community School</h3>
-      <p>Elementary and Middle School education</p>
-    </li>
-  </ul>
-</section>
+    <!-- Experience Section -->
+    <section id="experience" class="card">
+      <h2>Experience</h2>
+      <div class="list">
+        <div class="item">
+          <h3>Cybersecurity Analyst — Intern</h3>
+          <div class="meta">Indiana Cyber Network · May 2025 – Present (≈6 months)</div>
+          <p>Assist with security monitoring, incident triage, and playbook-driven response. Contribute to vulnerability assessment and hardening across Windows & Linux.</p>
+        </div>
+        <div class="item">
+          <h3>Cashier</h3>
+          <div class="meta">Meijer · Oct 2022 – Present (~3 years)</div>
+          <p>Delivered excellent customer service and supported front-end operations in a fast-paced retail environment.</p>
+        </div>
+        <div class="item">
+          <h3>Courtesy Clerk</h3>
+          <div class="meta">Payless (Kroger) · Dec 2019 – Oct 2022 (~3 years)</div>
+          <p>Supported store operations, assisted customers, and maintained a clean shopping experience.</p>
+        </div>
+        <div class="item">
+          <h3>Ice Cream Crew Member</h3>
+          <div class="meta">Dairy Queen · May 2018 – Dec 2019 (1 year, 8 months)</div>
+          <p>Prepared orders to standards in a busy environment while maintaining food safety.</p>
+        </div>
+      </div>
+    </section>
 
+    <!-- Education Section -->
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <div class="list">
+        <div class="item">
+          <h3>Anderson University</h3>
+          <div class="meta">B.S. Cybersecurity & Computer Science · Aug 2022 – Present · Expected 2026</div>
+        </div>
+        <div class="item">
+          <h3>Liberty Christian School</h3>
+          <div class="meta">High School Diploma · Graduated 2022</div>
+        </div>
+        <div class="item">
+          <h3>Anderson Community Schools</h3>
+          <div class="meta">Elementary & Middle School</div>
+        </div>
+      </div>
+    </section>
 
-  <section id="experience">
-   <h2> Experience</h2> 
-    
-   <ul>
-    <li>
-      <h3>Cybersecurity Analyst </h3>
-      <p> Indiana Cyber Network - Internship </p>
-      <p> May 2025 - Present (6 months)</p>
-    </li>
-    <li>
-      <h3>Cashier</h3>
-      <p> Meijer Grocery Store</p>
-      <p> Oct 2022 - Present (3 years)</p>
-    </li>
-    <li>
-      <h3>Courtesy Clerk</h3>
-      <p> Payless Supermarket (Kroger)</p>
-      <p> Dec 2019 - Oct 2022 (3 years)</p>
-    </li>
-      <h3> Ice Cream Artist</h3>
-      <p> Dairy Queen</p>
-      <p> May 2018 - Dec 2019 (1 year 8 months)</p>
-  </ul> 
-  </section>
-
-    <section id="skills">
+    <!-- Skills Section -->
+    <section id="skills" class="card">
       <h2>Skills</h2>
-      <ul>
-    <li>
-      <p> Windows and Linux administration </p>
-    </li>
-    <li>
-      <p> Phython and Bash Scripting</p>
-    </li>
-    <li>
-      <p>Incident response and recovery</p>
-    </li>
-    <li>
-      <p>Security planning and training</p>
-    </li>
-    <li>
-      <p>Customer service excellence</p>
-    </li>
-    <li>
-      <p>Team collaboration and support</p>
-    </li>
-    <li>
-      <p>Security Monitoring and optimization</p>
-  </li>
-  </section>
+      <div class="chips" aria-label="Skills list">
+        <span class="chip">Windows & Linux Administration</span>
+        <span class="chip">Python & Bash Scripting</span>
+        <span class="chip">Incident Response</span>
+        <span class="chip">Threat Analysis</span>
+        <span class="chip">Security Monitoring</span>
+        <span class="chip">Security Planning & Training</span>
+        <span class="chip">Team Collaboration</span>
+        <span class="chip">Customer Service</span>
+      </div>
+    </section>
 
-    <section id="projects">
+    <!-- Projects Section -->
+    <section id="projects" class="card">
       <h2>Projects</h2>
+      <ul class="list">
+        <li class="item">
+          <h3>Home Lab Firewall & AP</h3>
+          <div class="meta">Raspberry Pi (OpenWRT) · OPNsense · DHCP & Firewall Rules</div>
+          <p>Built a small network with an AP, firewall, and DHCP server for hands-on security testing and segmentation.</p>
+        </li>
+        <li class="item">
+          <h3>Python Log Parser</h3>
+          <div class="meta">Python · Regex · CSV</div>
+          <p>Parsed web server logs to flag suspicious IPs and export alerts to CSV for quick triage.</p>
+        </li>
+        <li class="item">
+          <h3>IR Notes Template</h3>
+          <div class="meta">Markdown · Checklists</div>
+          <p>Created a simple incident response checklist to speed up triage and documentation.</p>
+        </li>
+      </ul>
     </section>
 
-    <section id="certifications">
+    <!-- Certifications Section -->
+    <section id="certs" class="card">
       <h2>Certifications</h2>
+      <p>Add your certifications here (e.g., CompTIA Security+, Network+).</p>
     </section>
 
-    <section id="contact">
+    <!-- Contact Section -->
+    <section id="contact" class="card">
       <h2>Contact</h2>
-      <p> Phone Number: 765-639-7459</p>
-      <p> Linkedin: www.linkedin.com/in/zach-landis-905726270</p>
+      <p><strong>Phone:</strong> <a href="tel:17656397459">(765) 639-7459</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">linkedin.com/in/zach-landis-905726270</a></p>
+      <!-- Optional email -->
+      <!-- <p><strong>Email:</strong> you@example.com</p> -->
     </section>
   </main>
 
+  <!-- ====== Footer ====== -->
   <footer>
-    <p>© 2025 Your Name. All rights reserved.</p>
+    <div class="container">
+      <small>© 2025 Zachary D. Landis. All rights reserved.</small>
+    </div>
   </footer>
 </body>
 </html>
