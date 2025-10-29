@@ -3,174 +3,226 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zach Landis | Cybersecurity Resume</title>
-  <meta name="description" content="Cybersecurity & Computer Science resume site for Zachary D. Landis." />
+  <title>Zach Landis | Cybersecurity Analyst</title>
+  <meta name="description" content="Cybersecurity portfolio & resume site for Zachary D. Landis." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- HERO: left image, right content (desktop). Left-aligned text. -->
-  <header class="hero">
-    <div class="container hero__wrap">
-      <div class="hero__media">
-        <!-- Update path if different -->
-        <img src="images/profile.jpg" alt="Portrait of Zach Landis" class="hero__img" />
-      </div>
-
-      <div class="hero__content">
-        <h1 class="hero__title">Zachary D. Landis</h1>
-        <p class="hero__tag">Cybersecurity & Computer Science (B.S.) — Senior, Anderson University</p>
-
-        <ul class="badges">
-          <li>Indiana, USA</li>
-          <li>Cybersecurity Analyst Intern — Indiana Cyber Network</li>
-          <li>Threat Analysis • Incident Response • System Administration</li>
-        </ul>
-
-        <div class="cta">
-          <a class="btn btn--primary" href="#contact">Contact</a>
-          <a class="btn btn--outline" href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">
-            LinkedIn Profile
-          </a>
-          <a class="btn btn--ghost" href="assets/Zach_Landis_Resume.pdf" download>
-            Download Résumé
-          </a>
+  <!-- Top Header (simple) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">ZL</div>
+        <div class="brand-text">
+          <strong class="brand-name">Zachary D. Landis</strong>
+          <span class="brand-role">Cybersecurity & Computer Science</span>
         </div>
       </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">What I Do</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a class="btn btn--primary btn--sm" href="#contact">Hire Me</a>
+      </nav>
     </div>
   </header>
 
-  <!-- MAIN: two columns on desktop; left-aligned sections -->
-  <main class="container layout">
-    <!-- LEFT COLUMN -->
-    <section class="stack">
-      <!-- Summary -->
-      <section class="card">
-        <h2>Summary</h2>
-        <p>
-          Senior at Anderson University studying Cybersecurity with a complementary focus in Computer Science.
-          Built a foundation in Python, C++, and C; apply it to threat analysis, ethical hacking, cryptographic
-          security, incident response, and Windows/Linux hardening. Strong at risk assessment, vulnerability
-          analysis, and clear communication with teams.
-        </p>
-      </section>
+  <!-- HERO (dark blue) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <!-- Left: text -->
+      <div class="hero-copy">
+        <h1 class="hero-title">
+          Are You Looking For A<br>
+          Passionate <span class="accent">Cybersecurity Analyst</span>?
+        </h1>
 
-      <!-- Skills -->
-      <section class="card">
-        <h2>Key Skills</h2>
-        <ul class="chips">
-          <li>Windows Administration</li>
-          <li>Linux Administration</li>
-          <li>Python Scripting</li>
-          <li>Bash Scripting</li>
-          <li>Incident Response</li>
-          <li>Threat Analysis</li>
-          <li>Security Monitoring</li>
-          <li>Security Planning & Training</li>
-          <li>Team Collaboration</li>
-          <li>Customer Service</li>
+        <p class="hero-lead">Do you need:</p>
+
+        <ul class="checklist">
+          <li>A driven analyst with hands-on **Python, Bash, and sysadmin** skills.</li>
+          <li>Help with **threat analysis, incident response**, and **hardening** on Windows & Linux.</li>
+          <li>Someone who can turn **technical findings** into clear steps for teams.</li>
+          <li>A dependable intern who learns fast and delivers **clean, reliable work**.</li>
         </ul>
-      </section>
 
-      <!-- Projects -->
-      <section class="card">
-        <h2>Projects & Labs</h2>
-        <div class="list">
-          <div class="list__item">
-            <h3>Home Lab: AP, Firewall, DHCP</h3>
-            <p class="meta">OpenWRT (AP) • OPNsense (Router/Firewall) • Raspberry Pi (DHCP)</p>
-            <p>Built a segmented lab network to test firewall rules (allow/deny lists) and manage DHCP leases.</p>
-          </div>
-          <div class="list__item">
-            <h3>Python Log Parser</h3>
-            <p class="meta">Python • Regex • CSV</p>
-            <p>Parsed web server logs, flagged suspicious IPs, and exported alerts to CSV for faster triage.</p>
-          </div>
-          <div class="list__item">
-            <h3>IR Notes / Triage Template</h3>
-            <p class="meta">Markdown • Checklists</p>
-            <p>Created a concise checklist to standardize incident notes and reduce time-to-triage.</p>
-          </div>
-          <div class="list__item">
-            <h3>Personal Lab Domain</h3>
-            <p class="meta">zachary.landis.local</p>
-            <p>Organized lab hosts and services with a simple, memorable local domain scheme.</p>
-          </div>
+        <div class="hero-ctas">
+          <a class="btn btn--primary" href="#contact">Hire Me Today</a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">LinkedIn Profile</a>
+          <a class="btn btn--outline" href="assets/Zach_Landis_Resume.pdf" download>Download Résumé</a>
         </div>
-      </section>
-    </section>
+      </div>
 
-    <!-- RIGHT COLUMN -->
-    <section class="stack">
-      <!-- Experience -->
-      <section class="card">
-        <h2>Experience</h2>
-        <ol class="timeline">
-          <li class="timeline__item">
-            <div class="timeline__head">
-              <h3>Cybersecurity Analyst — Intern</h3>
-              <span class="meta">Indiana Cyber Network • May 2025 – Present (~6 months)</span>
-            </div>
-            <p>Assist with security monitoring, incident triage, and playbook-driven response. Contribute to vulnerability assessment and hardening across Windows & Linux.</p>
-          </li>
-          <li class="timeline__item">
-            <div class="timeline__head">
-              <h3>Cashier</h3>
-              <span class="meta">Meijer • Oct 2022 – Present (~3 years)</span>
-            </div>
-            <p>Delivered excellent customer service and supported front-end operations in a high-traffic environment.</p>
-          </li>
-          <li class="timeline__item">
-            <div class="timeline__head">
-              <h3>Courtesy Clerk</h3>
-              <span class="meta">Payless (Kroger) • Dec 2019 – Oct 2022 (~3 years)</span>
-            </div>
-            <p>Supported store operations, assisted customers, and kept the floor organized.</p>
-          </li>
-          <li class="timeline__item">
-            <div class="timeline__head">
-              <h3>Ice Cream Crew Member</h3>
-              <span class="meta">Dairy Queen • May 2018 – Dec 2019 (1 yr 8 mo)</span>
-            </div>
-            <p>Prepared orders to standards in a fast-paced setting while maintaining food safety.</p>
-          </li>
-        </ol>
-      </section>
+      <!-- Right: portrait -->
+      <div class="hero-media">
+        <!-- Replace src with your actual file path -->
+        <img src="images/profile.jpg" alt="Portrait of Zach Landis" class="hero-photo" />
+        <div class="photo-caption">Zach Landis — Cybersecurity & CS</div>
+      </div>
+    </div>
+  </section>
 
-      <!-- Education -->
-      <section class="card">
-        <h2>Education</h2>
-        <div class="list">
-          <div class="list__item">
-            <h3>Anderson University</h3>
-            <p class="meta">B.S. Cybersecurity & Computer Science • Aug 2022 – Present • Expected 2026</p>
-          </div>
-          <div class="list__item">
-            <h3>Liberty Christian School</h3>
-            <p class="meta">High School Diploma • 2022</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="card">
-        <h2>Contact</h2>
-        <p><strong>Phone:</strong> <a href="tel:17656397459">(765) 639-7459</a></p>
-        <p><strong>LinkedIn:</strong>
-          <a href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">
-            linkedin.com/in/zach-landis-905726270
-          </a>
-        </p>
-        <!-- Optional email -->
-        <!-- <p><strong>Email:</strong> you@example.com</p> -->
-        <div class="spacer"></div>
-        <a class="btn btn--outline" href="assets/Zach_Landis_Resume.pdf" download>Download Résumé</a>
-      </section>
-    </section>
-  </main>
-
-  <footer class="footer">
+  <!-- WHAT I DO / SERVICES -->
+  <section id="services" class="section">
     <div class="container">
+      <div class="grid-2">
+        <div class="card">
+          <h2>What I Can Do For You</h2>
+          <p>I combine a Cybersecurity major with a Computer Science focus to bridge analysis and execution. I’m comfortable investigating signals, writing quick scripts, and documenting clear remediation steps.</p>
+          <ul class="bullets">
+            <li><strong>Threat Analysis:</strong> log review, suspicious IP triage, IOC notes.</li>
+            <li><strong>Incident Response:</strong> checklist-driven triage, notes, escalation.</li>
+            <li><strong>Systems:</strong> Windows & Linux admin basics, hardening, updates.</li>
+            <li><strong>Scripting:</strong> Python & Bash to automate simple tasks and parsing.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>At A Glance</h2>
+          <ul class="facts">
+            <li><span>Location:</span> Indiana, USA</li>
+            <li><span>Role:</span> Cybersecurity Analyst Intern — Indiana Cyber Network</li>
+            <li><span>Degree:</span> B.S. Cybersecurity & Computer Science (Anderson University)</li>
+            <li><span>Graduation:</span> 2026 (Senior)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Selected Projects & Labs</h2>
+      <div class="grid-3">
+        <div class="card card-mini">
+          <h3>Home Lab: AP, Firewall, DHCP</h3>
+          <p class="meta">OpenWRT • OPNsense • Raspberry Pi</p>
+          <p>Built a segmented lab network to test rules, allow/deny lists, and DHCP lease management.</p>
+        </div>
+        <div class="card card-mini">
+          <h3>Python Log Parser</h3>
+          <p class="meta">Python • Regex • CSV</p>
+          <p>Parsed web server logs, flagged suspicious IPs, and exported alerts for faster triage.</p>
+        </div>
+        <div class="card card-mini">
+          <h3>IR Notes / Triage Template</h3>
+          <p class="meta">Markdown • Checklists</p>
+          <p>Created a compact incident checklist to standardize notes and speed up response.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <ol class="timeline">
+        <li class="t-item">
+          <div class="t-head">
+            <h3>Cybersecurity Analyst — Intern</h3>
+            <span class="meta">Indiana Cyber Network • May 2025 – Present (~6 months)</span>
+          </div>
+          <p>Security monitoring, incident triage, and playbook-driven response. Support vulnerability assessment and hardening across Windows & Linux environments.</p>
+        </li>
+
+        <li class="t-item">
+          <div class="t-head">
+            <h3>Cashier</h3>
+            <span class="meta">Meijer • Oct 2022 – Present (~3 years)</span>
+          </div>
+          <p>High-volume customer service, accurate transactions, and front-end support.</p>
+        </li>
+
+        <li class="t-item">
+          <div class="t-head">
+            <h3>Courtesy Clerk</h3>
+            <span class="meta">Payless (Kroger) • Dec 2019 – Oct 2022 (~3 years)</span>
+          </div>
+          <p>Assisted customers, organized floor, and supported daily store operations.</p>
+        </li>
+
+        <li class="t-item">
+          <div class="t-head">
+            <h3>Ice Cream Crew Member</h3>
+            <span class="meta">Dairy Queen • May 2018 – Dec 2019 (1 yr 8 mo)</span>
+          </div>
+          <p>Prepared orders to standards in a fast-paced environment while maintaining food safety.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Anderson University</h3>
+          <p class="meta">B.S. Cybersecurity & Computer Science • Aug 2022 – Present • Expected 2026</p>
+        </div>
+        <div class="card">
+          <h3>Liberty Christian School</h3>
+          <p class="meta">High School Diploma • 2022</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / HIRE ME -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="card contact-card">
+        <div class="contact-copy">
+          <h2>Ready to start a project together?</h2>
+          <p>Tell me a bit about what you need and I’ll get back to you soon.</p>
+
+          <form class="contact-form" onsubmit="return false;">
+            <label>
+              <span>Name</span>
+              <input type="text" placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea rows="4" placeholder="What can I help you with?"></textarea>
+            </label>
+            <div class="contact-actions">
+              <a class="btn btn--primary" href="mailto:you@example.com">Send Email</a>
+              <a class="btn btn--ghost" href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="btn btn--outline" href="assets/Zach_Landis_Resume.pdf" download>Download Résumé</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-aside">
+          <ul class="facts">
+            <li><span>Phone:</span> <a href="tel:17656397459">(765) 639-7459</a></li>
+            <li><span>LinkedIn:</span> <a href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">linkedin.com/in/zach-landis-905726270</a></li>
+            <!-- Add your public email if desired -->
+            <!-- <li><span>Email:</span> you@example.com</li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
       <small>© 2025 Zachary D. Landis. All rights reserved.</small>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+      </div>
     </div>
   </footer>
 </body>

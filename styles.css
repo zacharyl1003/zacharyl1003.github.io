@@ -1,16 +1,21 @@
+/* =====================================================
+   Zach Landis — Cybersecurity Landing (Blue/White/Gray)
+   Beginner-friendly CSS, no frameworks
+   ===================================================== */
 
-
-/* Theme (blue/white/gray) */
+/* Theme */
 :root{
-  --blue:#2563eb;        /* primary blue */
-  --bg:#f5f7fb;          /* page background (light gray) */
-  --card:#ffffff;        /* cards (white) */
-  --text:#111827;        /* dark gray text */
-  --muted:#6b7280;       /* secondary gray */
-  --line:#e5e7eb;        /* borders */
+  --blue:#2563eb;
+  --blue-600:#1e40af;
+  --bg:#0f2433;       /* dark hero bg */
+  --page:#f5f7fb;     /* page bg */
+  --card:#ffffff;     /* white card */
+  --text:#111827;     /* dark text */
+  --muted:#6b7280;    /* gray text */
+  --line:#e5e7eb;     /* borders */
   --radius:16px;
-  --shadow:0 10px 22px rgba(17,24,39,.10);
-  --maxw:1120px;
+  --shadow:0 14px 28px rgba(2,6,23,.10);
+  --maxw:1160px;
 }
 
 /* Base */
@@ -20,25 +25,112 @@ body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
   color:var(--text);
-  background:var(--bg);
+  background:var(--page);
   line-height:1.6;
 }
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 .container{max-width:var(--maxw);margin:0 auto;padding:24px}
 
-/* HERO (left image, right content; left-aligned) */
-.hero{padding:28px 0 8px;background:linear-gradient(180deg,#fff,rgba(255,255,255,0))}
-.hero__wrap{display:grid;gap:24px;align-items:center}
-@media (min-width:980px){.hero__wrap{grid-template-columns:.9fr 1.1fr}}
-.hero__media{text-align:left}
-.hero__img{
-  width:300px;max-width:100%;
-  aspect-ratio:1/1;object-fit:cover;
-  border-radius:14px;border:4px solid #e0e7ff; /* pale blue edge */
-  box-shadow:var(--shadow);
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:10;
+  background:#0f2433; /* same as hero bg */
+  border-bottom:1px solid rgba(255,255,255,.1);
 }
-.hero__title{margin:0 0 6px;font-size:38px;line-height:1.12}
-.hero__tag{margin:0;color:var(--muted)}
-.badges{
-  lis
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;color:#e5edf5}
+.logo{
+  width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-600));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800
+}
+.brand-text{display:flex;flex-direction:column}
+.brand-name{font-size:16px}
+.brand-role{font-size:12px;color:#b7c3cf}
+.nav{display:flex;gap:16px;flex-wrap:wrap}
+.nav a{color:#cbd5e1}
+.nav a:hover{color:#fff;text-decoration:none}
+.btn{display:inline-block;border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer}
+.btn--sm{padding:8px 12px;font-size:14px}
+.btn--primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* Hero */
+.hero{
+  background:#0f2433;color:#e6eef7;
+  padding:42px 0 48px;border-bottom:1px solid rgba(255,255,255,.08)
+}
+.hero-grid{display:grid;gap:28px;align-items:center}
+@media (min-width: 1024px){
+  .hero-grid{grid-template-columns: 1.1fr .9fr}
+}
+.hero-title{margin:0 0 14px;font-size:44px;line-height:1.15;color:#ffffff}
+.accent{color:#9ec5ff}
+.hero-lead{margin:0 0 8px;color:#cbd5e1}
+.checklist{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px}
+.checklist li{
+  position:relative;padding-left:28px;color:#dbe7f2
+}
+.checklist li::before{
+  content:"✔";position:absolute;left:0;top:0;
+  color:#7dd3fc;font-weight:700
+}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.btn--ghost{background:#0f2433;border-color:rgba(255,255,255,.28);color:#e6eef7}
+.btn--ghost:hover{background:#17364b}
+.btn--outline{background:#ffffff;border-color:#dbeafe;color:#1f2937}
+.hero-media{text-align:center}
+.hero-photo{
+  width:360px;max-width:100%;aspect-ratio:1/1;object-fit:cover;
+  border-radius:50%;
+  border:6px solid #dbeafe;
+  box-shadow:0 22px 50px rgba(0,0,0,.35)
+}
+.photo-caption{font-size:12px;color:#bcd1e6;margin-top:8px}
+
+/* Sections */
+.section{padding:38px 0}
+.section-alt{background:#eef2f7}
+.section-title{margin:0 0 16px;font-size:26px}
+.grid-2{display:grid;gap:18px}
+@media (min-width: 900px){.grid-2{grid-template-columns:1fr 1fr}}
+.grid-3{display:grid;gap:18px}
+@media (min-width: 1000px){.grid-3{grid-template-columns:1fr 1fr 1fr}}
+.card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)
+}
+.card-mini h3{margin:0 0 6px}
+.meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+.bullets{padding-left:20px;margin:10px 0 0}
+.bullets li{margin:6px 0}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.facts li span{color:var(--muted);display:inline-block;width:110px}
+
+/* Timeline */
+.timeline{list-style:none;padding:0;margin:0;border-left:3px solid #dbeafe}
+.t-item{position:relative;padding:0 0 16px 16px}
+.t-item::before{
+  content:"";position:absolute;left:-8px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--blue)
+}
+.t-head{display:flex;flex-direction:column;gap:4px}
+.t-head h3{margin:0}
+.t-item p{margin:6px 0 0}
+
+/* Contact */
+.contact-card{display:grid;gap:18px}
+@media (min-width: 960px){.contact-card{grid-template-columns:1.2fr .8fr}}
+.contact-form{display:grid;gap:12px;margin-top:8px}
+.contact-form label{display:grid;gap:6px}
+.contact-form input,.contact-form textarea{
+  padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit
+}
+.contact-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Footer */
+.site-footer{padding:22px 0;border-top:1px solid #e5e7eb;background:#ffffff}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footer-links{display:flex;gap:12px}
+.footer-links a{color:var(--muted)}
+.footer-links a:hover{color:var(--blue)}
