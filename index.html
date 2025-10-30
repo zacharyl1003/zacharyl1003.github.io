@@ -348,21 +348,22 @@ a:hover{text-decoration:underline}
         <h2>Ready to start working together?</h2>
         <p>Please feel free to reach out about anything.</p>
 
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form" id="contact-form" onsubmit="return false;">
           <label>
             <span>Name</span>
-            <input type="text" placeholder="Your name" />
+            <input id="contact-name" type="text" placeholder="Your name" required />
           </label>
           <label>
             <span>Email</span>
-            <input type="email" placeholder="you@example.com" />
+            <input id="contact-email" type="email" placeholder="you@example.com" required />
           </label>
           <label>
             <span>Message</span>
-            <textarea rows="4" placeholder="What can I help you with?"></textarea>
+            <textarea id="contact-message" rows="4" placeholder="What can I help you with?" required></textarea>
           </label>
           <div class="contact-actions">
-            <a class="btn btn--primary" href="mailto:zacharyl1003@gmail.com">Send Email</a>
+            <!-- Use an anchor so your existing button styles still apply -->
+            <a class="btn btn--primary" href="#" id="send-email-btn">Send Email</a>
             <a class="btn btn--ghost" href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn btn--outline" href="assets/Zach_Landis_Resume.pdf" download>Download Résumé</a>
           </div>
@@ -379,6 +380,53 @@ a:hover{text-decoration:underline}
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    const btn = document.getElementById('send-email-btn');
+    const nameEl = document.getElementById('contact-name');
+    const emailEl = document.getElementById('contact-email');
+    const msgEl = document.getElementById('contact-message');
+
+    function isLikelyEmail(x) {
+      // light validation (keeps it simple)
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x);
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const name = nameEl.value.trim();
+      const email = emailEl.value.trim();
+      const message = msgEl.value.trim();
+
+      // basic checks
+      if (!name || !email || !message) {
+        alert('Please fill out Name, Email, and Message.');
+        return;
+      }
+      if (!isLikelyEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      const to = 'zacharyl1003@gmail.com';
+      const subject = `Website contact from ${name}`;
+      const body =
+        `Name: ${name}\n` +
+        `Email: ${email}\n\n` +
+        `Message:\n${message}`;
+
+      const mailto = `mailto:${encodeURIComponent(to)}`
+        + `?subject=${encodeURIComponent(subject)}`
+        + `&body=${encodeURIComponent(body)}`;
+
+      // open the user's email client
+      window.location.href = mailto;
+    });
+  })();
+</script>
+
 
 <!-- ===== Footer ===== -->
 <footer class="site-footer">
