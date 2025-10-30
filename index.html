@@ -341,32 +341,19 @@ a:hover{text-decoration:underline}
 </section>
 
 <!-- ===== CONTACT / HIRE ME ===== -->
+<!-- ===== CONTACT / HIRE ME ===== -->
 <section id="contact" class="section">
   <div class="container">
     <div class="card contact-card">
       <div class="contact-copy">
         <h2>Ready to start working together?</h2>
-        <p>Please feel free to reach out about anything.</p>
+        <p>If you’d like to discuss a project, collaboration, or opportunities, reach out using the options below.</p>
 
-        <form class="contact-form" id="contact-form">
-          <label>
-            <span>Name</span>
-            <input id="contact-name" type="text" placeholder="Your name" required />
-          </label>
-          <label>
-            <span>Email</span>
-            <input id="contact-email" type="email" placeholder="you@example.com" required />
-          </label>
-          <label>
-            <span>Message</span>
-            <textarea id="contact-message" rows="4" placeholder="What can I help you with?" required></textarea>
-          </label>
-          <div class="contact-actions">
-            <button class="btn btn--primary" type="submit" id="send-email-btn">Send Email</button>
-            <a class="btn btn--ghost" href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn btn--outline" href="assets/Zach_Landis_Resume.pdf" download>Download Résumé</a>
-          </div>
-        </form>
+        <div class="contact-actions">
+          <a class="btn btn--primary" href="mailto:zacharyl1003@gmail.com?subject=Website%20Inquiry%20from%20Portfolio">Email Me</a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/zach-landis-905726270" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn--outline" href="assets/Zach_Landis_Resume.pdf" download>Download Résumé</a>
+        </div>
       </div>
 
       <div class="contact-aside">
@@ -379,81 +366,6 @@ a:hover{text-decoration:underline}
     </div>
   </div>
 </section>
-
-<script>
-  (function () {
-    const form = document.getElementById('contact-form');
-    const nameEl = document.getElementById('contact-name');
-    const emailEl = document.getElementById('contact-email');
-    const msgEl = document.getElementById('contact-message');
-
-    function enc(s){ return encodeURIComponent(s); }
-    function buildBody(name,email,msg){
-      return `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`;
-    }
-
-    async function copyFallback(text){
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(text);
-          alert("Couldn’t open an email app. Your message was copied to the clipboard—paste it into your email app.");
-        } else {
-          const ta = document.createElement('textarea');
-          ta.value = text;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          alert("Couldn’t open an email app. Your message was copied to the clipboard—paste it into your email app.");
-        }
-      } catch (e) {
-        alert("Couldn’t open an email app. Please email me at: zacharyl1003@gmail.com");
-      }
-    }
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const name = nameEl.value.trim();
-      const email = emailEl.value.trim();
-      const message = msgEl.value.trim();
-      if (!name || !email || !message) {
-        alert('Please fill out Name, Email, and Message.');
-        return;
-      }
-
-      const to = 'zacharyl1003@gmail.com';
-      const subject = `Website contact from ${name}`;
-      const body = buildBody(name, email, message);
-
-      // 1) Try mailto (default mail client)
-      const mailto = `mailto:${enc(to)}?subject=${enc(subject)}&body=${enc(body)}`;
-
-      // Use a temporary <a> to trigger in the same user gesture
-      const a = document.createElement('a');
-      a.href = mailto;
-      a.style.display = 'none';
-      document.body.appendChild(a);
-      a.click();
-
-      // 2) After a short delay, if the page is still visible (no email client took over),
-      // open Gmail compose as a fallback.
-      setTimeout(() => {
-        // If a real mail client handled it, many systems will switch apps/window and
-        // the tab may get hidden; if still visible, we try Gmail.
-        if (document.visibilityState === 'visible') {
-          const gmail = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${enc(to)}&su=${enc(subject)}&body=${enc(body)}`;
-          const w = window.open(gmail, '_blank', 'noopener');
-
-          // 3) If the popup was blocked, copy the message as a final fallback
-          if (!w) {
-            copyFallback(`To: ${to}\nSubject: ${subject}\n\n${body}`);
-          }
-        }
-      }, 400);
-    });
-  })();
-</script>
 
 
 
